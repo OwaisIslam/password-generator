@@ -3,13 +3,13 @@
 function generatePassword() {
   var passwordLength = getPasswordLength();
   console.log(passwordLength);
-  var lowerCase = getLowerCase();
+  var lowerCase = getChoice("lowercase");
   console.log(lowerCase);
-  var upperCase = getUpperCase();
+  var upperCase = getChoice("uppercase");
   console.log(upperCase);
-  var numericCharacters = getNumeric();
+  var numericCharacters = getChoice("numeric");
   console.log(numericCharacters);
-  var specialCharacters = getSpecial();
+  var specialCharacters = getChoice("special");
   console.log(specialCharacters);
 }
 
@@ -27,49 +27,12 @@ function getPasswordLength() {
   return userChoice;
 }
 
-function getLowerCase() {
-  var userChoice = "a";
+function getChoice(currentOption) {
+  var userChoice = "a", messagePrompt = "";
+  var messagePrompt = ('Would you like '.concat(currentOption));
+  messagePrompt = messagePrompt.concat(' characters (y/n)?');
   while (userChoice = "a") {
-    userChoice = (window.prompt("Would you like lowercase characters (y/n)?"));
-    console.log(userChoice);
-    if (userChoice == "y") {
-      return true;
-    } else if (userChoice == "n") {
-      return false;
-    }
-  }
-}
-
-function getUpperCase() {
-  var userChoice = "a";
-  while (userChoice = "a") {
-    userChoice = (window.prompt("Would you like uppercase characters (y/n)?"));
-    console.log(userChoice);
-    if (userChoice == "y") {
-      return true;
-    } else if (userChoice == "n") {
-      return false;
-    }
-  }
-}
-
-function getNumeric() {
-  var userChoice = "a";
-  while (userChoice = "a") {
-    userChoice = (window.prompt("Would you like numeric characters (y/n)?"));
-    console.log(userChoice);
-    if (userChoice == "y") {
-      return true;
-    } else if (userChoice == "n") {
-      return false;
-    }
-  }
-}
-
-function getSpecial() {
-  var userChoice = "a";
-  while (userChoice = "a") {
-    userChoice = (window.prompt("Would you like special characters (y/n)?"));
+    userChoice = (window.prompt(messagePrompt));
     console.log(userChoice);
     if (userChoice == "y") {
       return true;
