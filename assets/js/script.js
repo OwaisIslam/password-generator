@@ -3,15 +3,44 @@
 function generatePassword() {
   var passwordLength = getPasswordLength();
   console.log(passwordLength);
+  var lowerCase = getLowerCase();
+  console.log(lowerCase);
+  var upperCase = getUpperCase();
+  console.log(upperCase);
 }
 
 function getPasswordLength() {
-  var userLengthChoice = 0;
-  while ((userLengthChoice < 8) || (userLengthChoice > 128)) {
-    userLengthChoice = parseInt(window.prompt("Enter the number of characters between 8 and 128: "));
-    console.log(userLengthChoice);
+  var userChoice = 0;
+  while ((userChoice < 8) || (userChoice > 128)) {
+    userChoice = parseInt(window.prompt("Enter the number of characters between 8 and 128: "));
   }
-  return userLengthChoice;
+  return userChoice;
+}
+
+function getLowerCase() {
+  var userChoice = "a";
+  while (userChoice = "a") {
+    userChoice = (window.prompt("Would you like lowercase characters (y/n)?"));
+    console.log(userChoice);
+    if (userChoice == "y") {
+      return true;
+    } else if (userChoice == "n") {
+      return false;
+    }
+  }
+}
+
+function getUpperCase() {
+  var userChoice = "a";
+  while (userChoice = "a") {
+    userChoice = (window.prompt("Would you like lowercase characters (y/n)?"));
+    console.log(userChoice);
+    if (userChoice == "y") {
+      return true;
+    } else if (userChoice == "n") {
+      return false;
+    }
+  }
 }
 
 // Get references to the #generate element
