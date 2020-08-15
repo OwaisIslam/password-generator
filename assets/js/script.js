@@ -3,21 +3,32 @@
 function generatePassword() {
   var passwordLength = getPasswordLength();
   console.log(passwordLength);
-  var lowerCase = getChoice("lowercase");
-  console.log(lowerCase);
-  var upperCase = getChoice("uppercase");
-  console.log(upperCase);
-  var numericCharacters = getChoice("numeric");
-  console.log(numericCharacters);
-  var specialCharacters = getChoice("special");
-  console.log(specialCharacters);
+
+  var charTypeSelected = false;
+
+  // this loop ensures the user selects at least one character type
+  while (charTypeSelected == false) {
+    var lowerCase = getChoice("lowercase");
+    console.log(lowerCase);
+    var upperCase = getChoice("uppercase");
+    console.log(upperCase);
+    var numericCharacters = getChoice("numeric");
+    console.log(numericCharacters);
+    var specialCharacters = getChoice("special");
+    if ((lowerCase) || (upperCase) || (numericCharacters) || (specialCharacters)) {
+      charTypeSelected = true;
+    } else {
+      window.alert("You must select at least one character type.")
+    }
+    console.log(specialCharacters);
+  }
 }
 
 function getPasswordLength() {
   var userChoice = 0;
   while ((userChoice < 8) || (userChoice > 128)) {
     userChoice = parseInt(window.prompt("Enter the number of characters between 8 and 128: "));
-    
+
     // checking here to make sure the user entered a number and not a letter
     if (isNaN(userChoice)) {
       // this will reset the choice value to 0 so it can restart the loop if the user entered anything besides a number
@@ -27,8 +38,10 @@ function getPasswordLength() {
   return userChoice;
 }
 
+// created this function passing a 
 function getChoice(currentOption) {
-  var userChoice = "a", messagePrompt = "";
+  var userChoice = "a",
+    messagePrompt = "";
   var messagePrompt = ('Would you like '.concat(currentOption));
   messagePrompt = messagePrompt.concat(' characters (y/n)?');
   while (userChoice = "a") {
